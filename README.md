@@ -47,8 +47,6 @@ Nunca había usado Vite hasta ahora, y fue una grata sorpresa. Lo mismo con `rea
 
 ---
 
----
-
 ## 🛠️ Cómo correr el proyecto
 
 Si quieres probarlo localmente o revisar el código:
@@ -75,6 +73,7 @@ npm run build
 
 Esto valida el código con TypeScript y genera el proyecto final dentro de la carpeta `/dist`, listo para producción.
 
+---
 
 ## 🎯 Conclusión
 
