@@ -47,7 +47,36 @@ Nunca había usado Vite hasta ahora, y fue una grata sorpresa. Lo mismo con `rea
 
 ---
 
-## 🧠 Conclusión
+---
+
+## 🛠️ Cómo correr el proyecto
+
+Si quieres probarlo localmente o revisar el código:
+
+```bash
+git clone https://github.com/janoppix/mindy_challenge
+cd mindy_challenge
+npm install
+```
+
+### Para desarrollo
+
+```bash
+npm run dev
+```
+
+Esto levanta el proyecto en: [http://localhost:5173/](http://localhost:5173/)
+
+### Para build / producción
+
+```bash
+npm run build
+```
+
+Esto valida el código con TypeScript y genera el proyecto final dentro de la carpeta `/dist`, listo para producción.
+
+
+## 🎯 Conclusión
 
 No hay mucho más que decir. Traté de mantener todo lo más claro posible, pensando en que otra persona pueda leerlo y entender cómo está armado sin tener que preguntarse por qué funciona o por qué algo está así.
 
