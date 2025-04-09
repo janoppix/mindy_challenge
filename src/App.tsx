@@ -5,7 +5,7 @@ import Chart from './components/Chart';
 
 import { indicators } from './constants/indicators'; // o el path correcto
 import { yearsByIndicator } from './constants/yearsByIndicator';
-import { months } from './constants/dateOptions';
+import { months } from './constants/months';
 
 import useFetchData from './hooks/useFetchData';
 
@@ -25,7 +25,10 @@ const App = () => {
     ? filtrarSerie(data.serie, year, month)
     : [];
 
-    const statusClass = data == null ? 'orange' : 'teal';
+    const statusClass = datosFiltrados == null || !datosFiltrados.length ? 'orange' : 'teal';
+
+    const indicatorSelected = indicators.find(ind => ind.value === indicator);
+    const mointhSelected = months.find(mon => mon.value === month);
 
     return (
         <div>
@@ -72,7 +75,7 @@ const App = () => {
                 <div className="flex-1 bg-white p-4 rounded">
 
                   {!loading && !error && indicator && year && month && datosFiltrados.length ?
-                    <Chart data={datosFiltrados} layout={{ title: `Datos de ${indicator} ${year}/${month}` }} /> : ''
+                    <Chart data={datosFiltrados} title={`Datos de ${indicatorSelected.label} de ${mointhSelected.label.toLowerCase()} de ${year}` } /> : ''
                   }
                 </div>
 

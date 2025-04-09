@@ -1,8 +1,45 @@
 @import "tailwindcss";
-@theme {
 
-  --breakpoint-3xl: 1920px;
-  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
-  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+:root {
+  --color-teal-100: #ccfbf1;
+  --color-teal-200: #99f6e4;
+  --color-teal-300: #5eead4;
+  --color-teal-400: #2dd4bf;
+  --color-teal-500: #14b8a6;
+
+  --color-orange-100: #ffedd5;
+  --color-orange-200: #fed7aa;
+  --color-orange-300: #fdba74;
+  --color-orange-400: #fb923c;
+  --color-orange-500: #f97316;
+  --color-orange-900: #7c2d12;
+
+}
+@layer base {
+  html {
+    @apply bg-gray-100 text-gray-900;
+  }
+}
+@layer utilities {
+  .bg-teal-100 {
+    background-color: var(--color-teal-100);
+  }
+  .border-teal-500 {
+    border-color: var(--color-teal-500);
+  }
+  .text-teal-900 {
+    color: var(--color-teal-500);
+  }
+
+  .bg-orange-100 {
+    background-color: var(--color-orange-100);
+  }
+  .border-orange-500 {
+    border-color: var(--color-orange-500);
+  }
+  .text-orange-900 {
+    color: var(--color-orange-900);
+  }
+
 
 }

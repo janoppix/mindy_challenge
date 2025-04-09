@@ -22,7 +22,7 @@ const NavBar: React.FC<NavBarProps> = ({
           <div className="flex justify-between items-center">
 
               <div className="mr-2">
-                  <label htmlFor="indicator" className="block text-sm font-medium text-gray-700">Indicador</label>
+                  <label htmlFor="indicator" className="block text-sm font-bold text-gray-700">Indicador</label>
                   <select
                       id="indicator"
                       className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -38,7 +38,7 @@ const NavBar: React.FC<NavBarProps> = ({
 
 
               <div className="mr-2">
-                  <label htmlFor="year" className="block text-sm font-medium text-gray-700">Año</label>
+                  <label htmlFor="year" className="block text-sm font-bold text-gray-700">Año</label>
                   <select id="year" className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"  onChange={(e) => onYearChange(parseInt(e.target.value))}>
                     <option key="0" value="0">--- Selecciona una opción ---</option>
                     {years.map(year => (
@@ -49,7 +49,7 @@ const NavBar: React.FC<NavBarProps> = ({
 
 
               <div>
-                  <label htmlFor="month" className="block text-sm font-medium text-gray-700">Mes</label>
+                  <label htmlFor="month" className="block text-sm font-bold text-gray-700">Mes</label>
                   <select id="month" className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"  onChange={(e) => onMonthChange(parseInt(e.target.value))}>
                     <option key="0" value="0">--- Selecciona una opción ---</option>
                     {months.map((month, index) => (

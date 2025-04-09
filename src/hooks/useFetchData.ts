@@ -1,8 +1,18 @@
 // useFetchData.ts
 import { useState, useEffect } from 'react';
 
-interface Data {
-    // Definir la estructura de tus datos aquí
+export interface SerieItem {
+  fecha: string;
+  valor: number;
+}
+
+export interface Data {
+  version: string;
+  autor: string;
+  codigo: string;
+  nombre: string;
+  unidad_medida: string;
+  serie: SerieItem[];
 }
 
 interface FetchDataHook {
