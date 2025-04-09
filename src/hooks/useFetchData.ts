@@ -35,7 +35,7 @@ const useFetchData = (indicator: string, year: number, month: number): FetchData
               try {
                   const response = await fetch(`https://mindicador.cl/api/${indicator}/${year}/`);
                   const json = await response.json();
-                  console.log("jano PASS",response);
+                  console.log("Jano Data",response);
                   setData(json);
               } catch (e) {
                   setError(e instanceof Error ? e : new Error('Error desconocido al cargar datos'));

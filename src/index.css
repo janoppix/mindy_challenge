@@ -1,26 +1,39 @@
 @import "tailwindcss";
 
+/* ----------------------------------------
+   Variables de colores personalizados
+---------------------------------------- */
 :root {
+  /* Teal (verde-azulado) */
   --color-teal-100: #ccfbf1;
   --color-teal-200: #99f6e4;
   --color-teal-300: #5eead4;
   --color-teal-400: #2dd4bf;
   --color-teal-500: #14b8a6;
 
+  /* Orange (naranja) */
   --color-orange-100: #ffedd5;
   --color-orange-200: #fed7aa;
   --color-orange-300: #fdba74;
   --color-orange-400: #fb923c;
   --color-orange-500: #f97316;
   --color-orange-900: #7c2d12;
-
 }
+
+/* ----------------------------------------
+   Estilos base aplicados a todo el HTML
+---------------------------------------- */
 @layer base {
   html {
     @apply bg-gray-100 text-gray-900;
   }
 }
+
+/* ----------------------------------------
+   Utilidades personalizadas con Tailwind
+---------------------------------------- */
 @layer utilities {
+  /* Teal */
   .bg-teal-100 {
     background-color: var(--color-teal-100);
   }
@@ -28,9 +41,10 @@
     border-color: var(--color-teal-500);
   }
   .text-teal-900 {
-    color: var(--color-teal-500);
+    color: var(--color-teal-900); /* Nota: ¿quieres usar 500 aquí o deberías definir teal-900 también? */
   }
 
+  /* Orange */
   .bg-orange-100 {
     background-color: var(--color-orange-100);
   }
@@ -40,6 +54,4 @@
   .text-orange-900 {
     color: var(--color-orange-900);
   }
-
-
 }
