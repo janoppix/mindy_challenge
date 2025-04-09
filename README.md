@@ -1,54 +1,54 @@
-# React + TypeScript + Vite
+# 🧠 Mindy Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Primero que nada, vi el ejemplo que estaba deployado (https://tdc-mindy-challenge.surge.sh/) y noté que usaba Tailwind, así que lo primero que pensé fue armar un bundle con Webpack + React + TypeScript + Tailwind, como suelo hacerlo a veces. Pero la verdad es que se me empezó a ir más tiempo del necesario. Armar un bundle desde cero siempre tiene detalles, uno cree que se acuerda de todo pero al final siempre se te escapa algo 😅.
 
-Currently, two official plugins are available:
+Así que para no perder tiempo en lo que no era el foco, usé **Vite**, que es como un Rollup modernizado que ya viene con varias cosas listas. Le das enter un par de veces, eliges los lenguajes y ¡pum! ya tienes el proyecto corriendo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚧 Problema con la API
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Al tratar de conectarme a la API real (`https://mindicador.cl`) tiraba puros *Internal Server Error*, y tampoco hay documentación oficial para ver cómo se usa. Lo que hice fue revisar la demo que dejaron (esa que mencioné arriba) y desde ahí, en la consola del navegador, caché que había una llamada que sí devolvía datos reales:  
+📦 `https://mindicador.cl/api/uf/2025/`
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Entonces ahí se me abrieron dos caminos:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. **Hacer una llamada al seleccionar un indicador** para traer los años y meses válidos.
+2. **Simular los datos en duro**, porque la demo no hacía llamadas nuevas cuando uno cambiaba el select. Eso quiere decir que los datos ya estaban precargados o venían de antes de otra parte.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Elegí la opción 2 por una razón bien simple: no tengo acceso al endpoint real, y si trataba de hacerlo "correctamente", iba a dejar la app más lenta y sin sentido si los datos no llegaban. Así que creé los datos estáticos a mano, en la carpeta `/constants`, para simular esos endpoints que faltaban.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+---
+
+## 📁 Organización del Proyecto
+
+Dividí el proyecto en 4 carpetas principales:
+
+- `/components`: contiene el `NavBar` y el `Chart` (ambos en React).
+- `/constants`: acá dejé los datos que simulan los endpoints (años disponibles por indicador, meses, etc).
+- `/hooks`: para las llamadas a la API real (en este caso, `useFetchData.ts`).
+- `/utils`: funciones de ayuda, como filtrar los datos por año y mes (`filtrarSerie.ts`).
+
+Toda la lógica del negocio principal quedó dentro de `<App />`.
+
+---
+
+## ⚙️ Cosas que aprendí o que usé por primera vez
+
+Nunca había usado Vite hasta ahora, y fue una grata sorpresa. Lo mismo con `react-plotly.js`, que si bien ya lo había visto, no lo había usado directo. Tailwind ya lo había tocado antes, y me parece bien cómodo, muy parecido a usar Bootstrap o Material UI en cuanto a velocidad para maquetar.
+
+---
+
+## ✅ Cosas a destacar
+
+- Dejé todo lo más ordenado posible, con comentarios donde creí necesario.
+- No usé nada rebuscado, traté de mantenerlo simple, claro y funcional.
+- El enfoque fue más práctico que técnico: la prioridad era resolver el problema, no hacer un super sistema sin datos reales.
+
+---
+
+## 🧠 Conclusión
+
+No hay mucho más que decir. Traté de mantener todo lo más claro posible, pensando en que otra persona pueda leerlo y entender cómo está armado sin tener que preguntarse por qué funciona o por qué algo está así.
+
+Gracias por el desafío 👋
