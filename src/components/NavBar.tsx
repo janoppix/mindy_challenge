@@ -1,12 +1,22 @@
 import React from 'react';
 
+interface MonthOption {
+  value: number;
+  label: string;
+}
+
+export interface indicator {
+  value: string;
+  label: string;
+}
+
 interface NavBarProps {
     onIndicatorChange: (indicator: string) => void;
     onYearChange: (year: number) => void;
     onMonthChange: (month: number) => void;
     indicators: indicator[];
-    years: number[]; // Lista de años disponibles
-    months: string[]; // Lista de meses, puede ser constante o dependiendo del indicador
+    years: number[];
+    months: MonthOption[];
 }
 
 const NavBar: React.FC<NavBarProps> = ({

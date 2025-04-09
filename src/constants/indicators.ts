@@ -1,5 +1,5 @@
 export const indicators = [
-  { value: false, label: '--- Selecciona una opción ---' },
+  { value: '', label: '--- Selecciona una opción ---' },
   { value: 'uf', label: 'Unidad de fomento (UF)' },
   { value: 'libra_cobre', label: 'Libra de Cobre' },
   { value: 'tasa_desempleo', label: 'Tasa de desempleo' },

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import NavBar from './components/NavBar';
 import Chart from './components/Chart';
@@ -12,7 +12,7 @@ import { filtrarSerie } from './utils/filtrarSerie';
 
 const App = () => {
   // Estados principales de selección
-  const [indicator, setIndicator] = useState<string>(false);
+  const [indicator, setIndicator] = useState<string>('');
   const [year, setYear] = useState<number>(0);
   const [month, setMonth] = useState<number>(0);
 
@@ -89,7 +89,7 @@ const App = () => {
             {!loading && !error && indicator && year && month && datosFiltrados.length ? (
               <Chart
                 data={datosFiltrados}
-                title={`Datos de ${indicatorSelected.label} de ${mointhSelected.label.toLowerCase()} de ${year}`}
+                title={`Datos de ${indicatorSelected ? indicatorSelected.label : ''} de ${mointhSelected ? mointhSelected.label.toLowerCase() : '' } de ${year}`}
               />
             ) : null}
           </div>
